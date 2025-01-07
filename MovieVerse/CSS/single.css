@@ -1,0 +1,120 @@
+/* Genel Ayarlar */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+}
+
+.single-imdb-container {
+    position: relative;
+    height: auto;
+    width: 100%;
+    background-color: black;
+    overflow: hidden;
+  }
+  
+  .single-imdb-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/shawshank_redemption.jpeg) center center/cover no-repeat fixed;
+    filter: blur(5px); /* Sadece arka plan bulanıklaşır */
+    z-index: 1; /* Arka planda kalmasını sağlar */
+  }
+
+  .single-imdb-container > * {
+    background-color: rgba(255, 255, 255, 0.164);
+    position: relative;
+    z-index: 2; /* İçerik bulanıklıktan etkilenmez */
+  }
+
+.imdb-container-title {
+  padding-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-svg {
+  width: 100%;
+  max-width: 500px;
+  margin: 5px auto;
+  display: block;
+  filter: drop-shadow(0rem 0rem 1rem 1rem rgb(255, 255, 255));
+}
+
+.imdb-container {
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 50px;
+  padding: 40px 20px;
+}
+
+.imdb-trailer {
+  height: 500px;
+  width: auto;
+  display: flex;
+}
+
+.imdb-trailer iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.imdb-info {
+  height: auto;
+  width: auto;
+}
+
+.imdb-info .imdb-category-director{
+    display: grid;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 48px;
+    
+}
+
+.imdb-info .imdb-category-director ul{
+    padding: 0;
+    list-style-type: none;
+    font-family: "Poppins", serif;
+    letter-spacing: -5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-content: space-between;
+    text-align: center;
+    margin: 0;
+}
+
+.imdb-info .imdb-actors ul {
+    justify-content: space-evenly;
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+    text-align: center;
+}
+
+.imdb-info .imdb-actors ul li{
+    font-family: "Roboto", serif;
+    text-transform: uppercase;
+    font-size: 22px;
+    letter-spacing: 3px;
+}
+
+
+.imdb-info .imdb-summary{
+   padding: 5px 20px 10px 20px;
+   font-family: "Poppins", serif;
+   font-size: 22px;
+   text-align: justify;
+   
+}
+
+

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieVerse</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/single.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        Movie<span style="color: rgb(255, 106, 0)">Verse</span>
+      </div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <ul class="nav-links">
+        <a href="index.html">
+          <li>Home<span></span></li>
+        </a>
+        <a href="movies.html">
+          <li>Movies<span></span></li>
+        </a>
+        <a href="ımdb.html">
+          <li>IMDb<span></span></li>
+        </a>
+        <a href="campaign.html">
+          <li>Campaigns<span></span></li>
+        </a>
+        <a href="contact.html">
+          <li>About/Contact<span></span></li>
+        </a>
+      </ul>
+      <div class="nav-right">
+        <a href="login.html">Sign In</a>
+        <button id="search-button" class="search-btn">
+          <i class="fa-solid fa-magnifying-glass" style="color: white"></i>
+        </button>
+      </div>
+    </nav>
+    <div id="search-box" class="search-box hidden">
+      <input type="text" id="search-input" placeholder="Site içinde ara..." />
+      <button id="perform-search">Ara</button>
+    </div>
+
+    <div class="single-imdb-container">
+      <div class="imdb-container-title">
+        <svg viewBox="0 0 500 200" class="title-svg">
+          <!-- Üst Çizgi -->
+          <path
+            id="upper-curve"
+            d="M10 60 Q 250 10 490 60"
+            stroke="black"
+            stroke-width="3"
+            fill="none"
+          />
+
+          <!-- Alt Çizgi -->
+          <path
+            id="lower-curve"
+            d="M10 115 Q 255 60 495 115"
+            stroke="black"
+            stroke-width="3"
+            fill="none"
+          />
+
+          <!-- Yazı (İki Çizgi Arasında) -->
+          <text
+            font-size="34"
+            font-family="Abril Fatface"
+            font-weight="bold"
+            text-anchor="middle"
+            fill="black"
+          >
+            <textPath href="#middle-curve" startOffset="50%">
+              SHAWSHANK REDEMPTION
+            </textPath>
+          </text>
+
+          <!-- Orta Çizgi (Yazı İçin Görünmez) -->
+          <path id="middle-curve" d="M10 100 Q 250 50 495 100" fill="none" />
+        </svg>
+      </div>
+      <div class="imdb-container">
+        <div class="imdb-trailer">
+          <iframe
+            src="https://www.youtube.com/embed/NmzuHjWmXOc?autoplay=1&mute=1"
+            title="The Shawshank Redemption (1994) Official Trailer #1 - Morgan Freeman Movie HD"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="imdb-info">
+          <div class="imdb-category-director">
+            <marquee behavior="slide" direction="left" scrollamount="10"><ul>
+              <li>Drama/Crime</li>
+              <li>Frank Darabont</li>
+            </ul>
+          </marquee>
+          </div>
+          <div class="imdb-actors">
+            <ul>
+              <li>tim robbins</li>
+              <li>morgan freeman</li>
+              <li>bob gunton</li>
+            </ul>
+          </div>
+          <div class="imdb-summary">
+            <p>
+              The Shawshank Redemption (1994) is a powerful tale of hope,
+              friendship, and resilience. Based on Stephen King's novella, the
+              film follows Andy Dufresne (Tim Robbins), a banker wrongly
+              convicted of murder, as he navigates life in Shawshank Prison.
+              Through his bond with fellow inmate Red (Morgan Freeman), Andy
+              inspires those around him to never lose hope, even in the darkest
+              times. Directed by Frank Darabont, this timeless classic is a
+              story of perseverance and the unyielding human spirit. With a 9.3
+              IMDb rating, it remains one of the greatest films ever made.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <section class="mobile-app-section">
+      <div class="mobile-app-container">
+        <div class="app-text">
+          <h2>Hala İndirmediniz Mi?
+          </h2>
+          <div class="app-buttons">
+            <a href="https://apps.apple.com/app/chatgpt/id6448311069" class="google-play">
+              <img src="../images/app-store.png" alt="">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" class="app-store">
+              <img src="../images/google_play.png" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="app-image">
+          <img src="../images/output.png" alt="Mobil Uygulama">
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+      <div class="box-container">
+        <div class="box">
+          <h3>Created by MovieVerse | <span>All Rights Reserved</span></h3>
+        </div>
+        <div class="social">
+          <a
+            href="https://tr-tr.facebook.com/nisantasiedu/"
+            target="_blank"
+            class="fa-brands fa-facebook-f"
+          ></a>
+          <a
+            href="http://instagram.com/oz.trk4/"
+            target="_blank"
+            class="fa-brands fa-instagram"
+          ></a>
+          <a
+            href="https://twitter.com/Abdulsametztr13"
+            target="_blank"
+            class="fa-brands fa-twitter"
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/abdulsamet-%C3%B6zt%C3%BCrk-9135412a8/"
+            target="_blank"
+            class="fab fa-linkedin"
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <script src="../JS/script.js"></script>
+  </body>
+</html>
