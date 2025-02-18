@@ -1,0 +1,112 @@
+body {
+  background: #1a1a1a;
+  color: #fff;
+  margin: 0;
+}
+
+p {
+  margin: 0 0 13px 0;
+}
+
+.center {
+  text-align: center;
+}
+
+.container {
+  width: 95%;
+  max-width: 1820px;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+
+.episode {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  position: relative;
+  margin: 50px 0;
+}
+
+.episode__number {
+  font-size: 10vw;
+  font-weight: 600;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  text-align: center;
+  height: calc(10vw + 20px);
+  transition: all 0.2s ease-in;
+}
+
+.episode__content {
+  display: flex; /* Poster ve detayları yan yana getirir */
+  align-items: flex-start; /* İçerikleri hizalar */
+  gap: 20px; /* Poster ve detaylar arasında boşluk bırakır */
+  border-bottom: 1px solid white;
+}
+
+.episode__content .title {
+  font-weight: 600;
+}
+
+.episode__content .story {
+  line-height: 26px;
+}
+
+.detail-button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.details {
+  flex: 1; /* Detay kısmını posterle eşit hizada uzatır */
+}
+
+.details .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.details .story {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.movie-poster img {
+  width: 150px; /* Poster genişliği */
+  height: auto; /* Oranı korur */
+  border-radius: 10px; /* Köşeleri yuvarlatır */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Gölgelendirme */
+}
+.movie-poster {
+  text-align: center; /* Poster merkezi hizalanır */
+}
+
+.toggle-button {
+  background-color: rgb(226, 20, 20);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 15px 0;
+}
+.toggle-button:hover {
+  background-color: #ff4500;
+}
+
+@media (max-width: 600px) {
+  .episode__content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .episode__content .story {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,207 @@
+/* Genel Ayarlar */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: black;
+  background-size: cover; /* Arka plan boyutu */
+  background-position: center; /* Arka plan konumu */
+  background-repeat: no-repeat; /* Arka plan tekrarı */
+  background-attachment: fixed; /* Sabit arka plan */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.169); /* Hafif beyaz karartma */
+  filter: blur(20px); /* Bulanıklık efekti */
+  z-index: -1; /* Arka planda kalır */
+  pointer-events: none; /* İçerik ile etkileşime girilmez */
+}
+
+.single-imdb-container {
+  position: relative;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 70px;
+}
+
+.single-imdb-container > * {
+  position: relative;
+  z-index: 2; /* İçerik bulanıklıktan etkilenmez */
+}
+
+.imdb-container-title {
+  padding-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-svg {
+  width: 100%;
+  max-width: 500px;
+  margin: 5px auto;
+  display: block;
+  filter: drop-shadow(0rem 0rem 1rem 1rem rgb(255, 255, 255));
+}
+
+.imdb-container {
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 50px;
+  padding: 40px 20px;
+}
+
+.imdb-trailer {
+  height: 500px;
+  width: auto;
+  display: flex;
+}
+
+.imdb-trailer iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.imdb-info {
+  height: auto;
+  width: auto;
+}
+
+.imdb-info .imdb-category-director {
+  display: grid;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 48px;
+}
+
+.imdb-info .imdb-category-director ul {
+  padding: 0;
+  list-style-type: none;
+  font-family: "Poppins", serif;
+  letter-spacing: -5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-content: space-between;
+  text-align: center;
+  margin: 0;
+}
+
+.imdb-info .imdb-actors ul {
+  justify-content: space-evenly;
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+  text-align: center;
+}
+
+.imdb-info .imdb-actors ul li {
+  font-family: "Roboto", serif;
+  text-transform: uppercase;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+
+.imdb-info .imdb-summary {
+  padding: 5px 20px 10px 20px;
+  font-family: "Poppins", serif;
+  font-size: 22px;
+  text-align: justify;
+}
+
+.comment-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(400px, 1fr)
+  ); /* Dinamik kolon sayısı */
+  gap: 20px; /* Yorum kutuları arasındaki boşluk */
+  padding: 20px;
+  justify-content: center;
+}
+
+.comment-container .comment-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.411);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word; /* Uzun kelimeleri böler */
+  box-sizing: border-box;
+  width: 100%; /* Kutuların eşit genişlikte olmasını sağlar */
+}
+
+.comment-container .comment-box .comment-avatar img {
+  height: 8rem;
+  width: 8rem;
+  border: 1px solid black;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment-container .comment-box .comment {
+  font-size: 18px;
+  text-align: center;
+  flex-grow: 1; /* Yorum alanını büyüterek boşluğu doldur */
+}
+
+.comment-container .comment-box .comment-date {
+  text-align: right;
+  color: rgb(68, 68, 68);
+  font-size: 14px;
+  margin-top: auto; /* Alt kısma sabitler */
+}
+
+.form {
+  display: flex; /* Flexbox kullanımı */
+  flex-direction: column; /* Elemanları dikeyde sıralar */
+  align-items: center; /* Yatayda ortalar */
+  justify-content: center; /* Dikeyde ortalar */
+  box-sizing: border-box; /* Dolgu ve kenarlıklar dahil edilir */
+}
+
+.form .form-group {
+  width: 100%; /* Form grubu genişliği */
+  text-align: center; /* İçeriği yatayda ortalar */
+  margin-bottom: 20px; /* Buton ile boşluk bırakır */
+}
+
+.form .form-group textarea {
+  width: 100%;
+  background-color: transparent;
+  backdrop-filter: blur(100px);
+  border-radius: 40px;
+  text-align: center;
+  font-size: 30px;
+  border: 2px solid black;
+  min-height: 50px;
+  padding: 30px 5px;
+  overflow: hidden; /* Kaydırma çubuğunu gizler */
+  resize: none; /* Kullanıcının manuel boyutlandırmasını engeller */
+  box-sizing: border-box; /* Dolgu ve kenarlıklar dahil edilir */
+  justify-content: center;
+}
+
+.form button {
+  font-size: 20px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#sub {
+  cursor: pointer;
+  border: none;
+  font-size: 30px;
+}

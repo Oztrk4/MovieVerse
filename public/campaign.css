@@ -1,0 +1,78 @@
+.campaign-bg-container {
+  height: auto;
+  background: url(images/campaing-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  padding: 150px;
+}
+
+.campaign-bg-container .campaign-container {
+  height: auto;
+  backdrop-filter: blur(25px);
+  background-color: rgba(0, 0, 0, 0.363);
+  border-radius: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 50px;
+}
+
+.campaign-bg-container .campaign-container .campaign-poster {
+  height: 100%;
+  background-color: black;
+  grid-column: span 1;
+  border-radius: 25px;
+}
+
+.campaign-bg-container .campaign-container .campaign-poster img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+}
+
+.campaign-bg-container .campaign-container .campaign-info {
+  grid-column: span 2;
+  line-height: 55px;
+  font-size: 25px;
+  font-family: "Poppins" sans-serif;
+  text-align: justify;
+  padding: 15px 25px;
+}
+
+@media (max-width: 1350px) {
+  .campaign-container {
+    max-width: 1100px;
+  }
+  .campaign-bg-container .campaign-container .campaign-poster {
+    grid-column: span 2;
+    width: 100%;
+  }
+  .campaign-bg-container .campaign-container .campaign-poster img {
+    width: 100%;
+  }
+}
+@media (max-width: 550px) {
+  .campaign-bg-container .campaign-container {
+    height: auto;
+    backdrop-filter: blur(25px);
+    background-color: rgba(0, 0, 0, 0.363);
+    border-radius: 25px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 50px;
+  }
+
+  .campaign-bg-container {
+    padding: 150px 25px 25px 25px;
+  }
+
+  .campaign-bg-container .campaign-container .campaign-info {
+    width: 100%;
+    padding: 0;
+    margin: 0 20px 0 0;
+  }
+}

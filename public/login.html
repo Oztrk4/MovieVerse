@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieVerse | Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css"
+    />
+    <link rel="stylesheet" href="login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="images/LOGO.png" alt="" />
+      </div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <ul class="nav-links">
+        <a href="index.html">
+          <li>Home<span></span></li>
+        </a>
+        <a href="movies.html">
+          <li>Movies<span></span></li>
+        </a>
+        <a href="ımdb.html">
+          <li>IMDb<span></span></li>
+        </a>
+        <a href="campaign.html">
+          <li>Campaigns<span></span></li>
+        </a>
+        <a href="contact.html">
+          <li>About/Contact<span></span></li>
+        </a>
+      </ul>
+      <div class="nav-right">
+        <a href="login.html" id="sign-in">Sign In</a>
+        <button id="search-button" class="search-btn">
+          <i class="fa-solid fa-magnifying-glass" style="color: white"></i>
+        </button>
+      </div>
+    </nav>
+    <div id="search-box" class="search-box hidden">
+      <input type="text" id="search-input" placeholder="Site içinde ara..." />
+      <button id="perform-search">Ara</button>
+    </div>
+
+    <!-- Tüm sayfayı kaplayan bölüm -->
+    <!-- Login and Signup -->
+    <div class="login-page">
+      <div class="login-wrapper">
+        <!-- Başlık ve kartların bulunduğu ana bölüm -->
+        <div class="login-content-area">
+          <!-- Log In / Sign Up sekme başlığı -->
+          <h6 class="tab-switch-title">
+            <span>Log In</span>
+            <span>Sign Up</span>
+          </h6>
+
+          <!-- 3D kart dönüşümünü tetikleyen checkbox -->
+          <input type="checkbox" id="reg-log" name="reg-log" class="checkbox" />
+          <label for="reg-log"></label>
+          <div class="card-3d-wrap">
+            <div class="card-3d-wrapper">
+              <!-- Log In Section -->
+              <div class="card-front">
+                <div class="center-wrap">
+                  <div class="form-section">
+                    <h4 class="form-title">Log In</h4>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        name="logemail"
+                        id="logemail"
+                        autocomplete="off"
+                        placeholder="Your Email"
+                        class="form-style"
+                        required
+                      />
+                      <i class="input-icon uil uil-at"></i>
+                    </div>
+                    <div class="form-group margin-top">
+                      <input
+                        type="password"
+                        name="logpass"
+                        id="logpass"
+                        autocomplete="off"
+                        placeholder="Your Password"
+                        class="form-style"
+                        required
+                      />
+                      <i class="input-icon uil uil-lock-alt"></i>
+                    </div>
+                    <button id="login-btn" class="btn margin-top">
+                      Log In
+                    </button>
+                    <p class="info-text margin-top">
+                      <a href="#" class="link-override"
+                        >Forgot your password?</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sign Up Section -->
+              <div class="card-back">
+                <div class="center-wrap">
+                  <div class="form-section">
+                    <h4 class="form-title">Sign Up</h4>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        name="logname"
+                        id="logname"
+                        autocomplete="off"
+                        placeholder="Your Full Name"
+                        class="form-style"
+                        required
+                      />
+                      <i class="input-icon uil uil-user"></i>
+                    </div>
+                    <div class="form-group margin-top">
+                      <input
+                        type="email"
+                        name="logemail"
+                        id="logemail2"
+                        autocomplete="off"
+                        placeholder="Your Email"
+                        class="form-style"
+                        required
+                      />
+                      <i class="input-icon uil uil-at"></i>
+                    </div>
+                    <div class="form-group margin-top">
+                      <input
+                        type="password"
+                        name="logpass"
+                        id="logpass2"
+                        autocomplete="off"
+                        placeholder="Your Password"
+                        class="form-style"
+                        required
+                      />
+                      <i class="input-icon uil uil-lock-alt"></i>
+                    </div>
+                    <button id="signup-btn" class="btn margin-top">
+                      Sign Up
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- login-page sonu -->
+
+    <footer>
+      <div class="box-container">
+        <div class="box">
+          <h3>Created by MovieVerse | <span>All Rights Reserved</span></h3>
+        </div>
+        <div class="social">
+          <a
+            href="https://tr-tr.facebook.com/nisantasiedu/"
+            target="_blank"
+            class="fa-brands fa-facebook-f"
+          ></a>
+          <a
+            href="http://instagram.com/oz.trk4/"
+            target="_blank"
+            class="fa-brands fa-instagram"
+          ></a>
+          <a
+            href="https://twitter.com/Abdulsametztr13"
+            target="_blank"
+            class="fa-brands fa-twitter"
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/abdulsamet-%C3%B6zt%C3%BCrk-9135412a8/"
+            target="_blank"
+            class="fab fa-linkedin"
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="login.js"></script>
+  </body>
+</html>

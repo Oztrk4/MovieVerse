@@ -1,0 +1,1048 @@
+/* Genel Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-padding-top: 9rem;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  width: 0.8rem;
+  background-color: white;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 3rem;
+  background-color: rgb(226, 20, 20);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  width: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: transform 0.7s ease-in-out;
+  background-color: black;
+  box-shadow: 0px 1px 70px -7px rgb(54, 54, 54);
+}
+
+/* Ekran en üstteyken beyaz arka plan */
+.navbar.top {
+  background-color: #000000;
+  color: #000000;
+  box-shadow: 0px 1px 70px -7px rgb(54, 54, 54);
+}
+
+/* Diğer durumlarda blurlu arka plan */
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.767);
+  /* Hafif şeffaf beyaz */
+  backdrop-filter: blur(2.5px);
+  /* Blur efekti */
+  box-shadow: 0px 1px 70px -7px rgb(54, 54, 54);
+  /* Hafif gölge */
+}
+
+/* Navbar içindeki linklerin rengi */
+.nav-links a,
+.nav-right a {
+  color: rgb(255, 255, 255);
+  /* Renk navbar'ın durumuna bağlı */
+  transition: color 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+.logo img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  padding: 10px;
+  margin: 0 5px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  text-align: center;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-links li:hover a {
+  color: rgb(226, 20, 20);
+}
+
+.nav-links li::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 0;
+  border-right: 1px solid rgb(255, 255, 255);
+  width: 0px;
+  transition: 0.2s linear all;
+  transition-delay: 0s;
+}
+
+.nav-links li span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  width: 0px;
+  transition: 0.2s linear all;
+  transition-delay: 0.2s;
+}
+
+.nav-links li::after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  height: 0;
+  border-left: 1px solid rgb(255, 255, 255);
+  transition: 0.2s linear all;
+  transition-delay: 0.4s;
+}
+
+.nav-links li:hover::after,
+.nav-links li:hover::before {
+  height: 100%;
+}
+
+.nav-links li:hover span {
+  width: 100%;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  transition: all color 0.3s ease;
+  padding: 200px, 100px;
+  margin: 10px, 20px;
+  border-radius: 3px;
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 8px 15px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-right a:hover {
+  background-color: white;
+  color: rgb(226, 20, 20);
+  transition: all 0.7s ease-in-out;
+}
+
+/* Aktif olan link için stil */
+.nav-links li.active {
+  color: rgb(255, 255, 255);
+  /* Metin rengi */
+  border-bottom: 1px solid rgb(255, 255, 255);
+  /* Alt çerçeve */
+  position: relative;
+}
+
+.nav-links li.active::before,
+.nav-links li.active::after {
+  height: 100%;
+  /* Çerçevenin tamamlanmış hali */
+}
+
+.nav-links li.active span {
+  width: 100%;
+  /* Alt çizginin tamamlanmış hali */
+}
+
+/* Navbar Responsive Design */
+.menu-toggle {
+  display: none;
+  font-size: 1.8em;
+  cursor: pointer;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 1080px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    width: 100%;
+    /* Ekranın tamamını kaplar */
+    border-radius: 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: fadeIn 0.3s ease-in-out;
+    /* Geçişli açılma efekti */
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  .nav-links a:hover {
+    color: rgb(226, 20, 20);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Arama Kutusu */
+.search-box {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: #0000009f;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.search-box.hidden {
+  display: none;
+}
+
+.search-box input {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: 200px;
+}
+
+.search-box button {
+  padding: 5px 10px;
+  background-color: rgb(226, 20, 20);
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+  background-color: #d18e00;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-left: 10px;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url(images/main.jpg) no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  flex-direction: column;
+  justify-content: center;
+  border-image: fill 5 linear-gradient(rgba(255, 255, 255, 0), #0000009a);
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-family: "Poppins", serif;
+}
+
+.camp-preview {
+  padding-top: 3px;
+  padding-bottom: 35px;
+  background-color: #0d0d0d;
+  width: 100%;
+  box-sizing: border-box;
+  background: url(images/camp-preview.jpg) no-repeat;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  flex-direction: column;
+  justify-content: center;
+  border-image: fill 5 linear-gradient(rgba(255, 255, 255, 0), #0000009a);
+}
+
+.camp-preview-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  backdrop-filter: blur(5.5px);
+}
+
+.camp-preview-title h1 {
+  color: rgb(226, 20, 20);
+  font-weight: 1000;
+  font-size: 3em;
+  letter-spacing: 5px;
+  flex: 1;
+  text-align: center;
+  letter-spacing: 100px;
+  font-family: "Roboto", serif;
+}
+
+.camp-preview-title .btnn {
+  display: flex;
+}
+
+.camp-preview-title .btnn a {
+  color: #fff;
+}
+
+.camp-preview-title .btnn .btn {
+  background-color: rgb(226, 20, 20);
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: 0.3s;
+  right: 15px;
+}
+
+.camp-preview-title .btnn .btn:hover {
+  background-color: #ffffff;
+  color: rgb(226, 20, 20);
+  border-radius: 5px;
+}
+
+.poster-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.poster {
+  width: 100%;
+  /* posterler %100 genişliğinde olacak */
+  max-width: 500px;
+  /* maksimum genişlik 300px */
+  box-shadow: 0px 0px 30px 0px rgb(194, 194, 194);
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.poster img {
+  object-fit: cover;
+  /* Görsellerin alanı kaplamasını sağlıyoruz */
+  width: 100%;
+  /* Görsellerin genişliğini %100 yapıyoruz */
+  height: 100%;
+  /* Görsellerin yüksekliğini %100 yapıyoruz */
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.poster:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 1024px) {
+  .poster-container {
+    justify-content: space-around;
+  }
+
+  .poster {
+    width: 45%;
+    /* 1024px ve altındaki ekranlarda posterler %45 genişliğinde olacak */
+  }
+
+  .camp-preview-title h1 {
+    font-size: 2.5em;
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .poster-container {
+    justify-content: center;
+  }
+
+  .poster {
+    width: 100%;
+    /* 768px ve altındaki ekranlarda her poster %100 genişliğinde olacak */
+  }
+
+  .camp-preview-title h1 {
+    font-size: 2.2em;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .camp-preview-title {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .camp-preview-title h1 {
+    font-size: 2em;
+    letter-spacing: 1px;
+  }
+}
+
+.login-movie {
+  height: auto;
+  background-color: rgb(226, 20, 20);
+}
+
+.login-movie-container {
+  background-color: white;
+  display: flex;
+  height: auto;
+  border-image: fill 5 linear-gradient(to right, #0d0d0d79, #0d0d0d);
+}
+
+/* Sol taraf: Kullanıcı giriş alanı */
+.login-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 30%; /* Giriş formu genişliği */
+  transition: all 0.5s ease-in-out; /* Yumuşak geçiş */
+}
+
+.login-preview form {
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+  align-items: center;
+}
+
+.login-preview h2 {
+  color: rgb(226, 20, 20);
+  margin-bottom: 20px;
+}
+
+.login-preview input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #000000;
+  background-color: #000000;
+  border-radius: 5px;
+  font-size: 1em;
+  color: white;
+}
+
+.login-preview button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  background: none;
+  color: white;
+  backdrop-filter: blur(1000px);
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.login-preview a {
+  color: rgb(226, 20, 20);
+}
+
+.login-preview button:hover {
+  background-color: #000000;
+  transition: 0.8s ease-in-out;
+}
+
+.film-carousel {
+  position: relative;
+  height: auto;
+  display: flex;
+  gap: 10px;
+  width: 70%; /* Başlangıçta genişlik 70% */
+  transition: all 0.5s ease-in-out; /* Yumuşak geçiş */
+}
+
+.login-preview.hidden {
+  display: none; /* Giriş alanını gizle */
+}
+
+.film-carousel.full-width {
+  width: 100%; /* Carousel tam ekran olur */
+}
+
+.header {
+  position: absolute;
+  display: flex;
+  z-index: 10;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  color: white;
+}
+
+.see-all {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  transition: all 0.8s;
+}
+
+.see-all:hover {
+  background-color: white;
+  color: rgb(226, 20, 20);
+}
+
+.new-movies {
+  letter-spacing: 30px;
+  font-size: x-large;
+}
+
+.carousel-container {
+  position: relative;
+  margin: 50px auto;
+  width: 100%;
+  height: auto;
+  padding: 100px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transition: transform 0.5s ease-in-out;
+  width: auto;
+  gap: 80px;
+}
+
+.carousel-item {
+  flex: 0 0 20%;
+  margin: 10px 10px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+.carousel-item.active {
+  flex: 0 0 30%;
+  /* Aktif kart daha geniş */
+  transform: scale(1.15);
+  z-index: 2;
+}
+
+.carousel-item.prev,
+.carousel-item.next {
+  opacity: 0.1;
+  /* Kenardaki kartlar soluk görünür */
+  transform: scale(0.9) translateY(20px);
+  /* Kenar kartları küçültüp aşağı çek */
+}
+
+.carousel-item img {
+  max-width: 100%;
+  /* Genişliği kartın genişliğini aşmasın */
+  max-height: 100%;
+  /* Yüksekliği kartın yüksekliğini aşmasın */
+  margin: auto;
+  /* Resmi kartın ortasına hizalar */
+  display: block;
+  /* Ortalamayı sağlamak için */
+  object-fit: contain;
+  /* Resmin kesilmesini önler ve kartın içine sığdırır */
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 2px rgb(126, 126, 126);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+  left: 20px;
+}
+
+.next-btn {
+  right: 20px;
+}
+
+/* Responsive düzen */
+@media (max-width: 1400px) {
+  .login-movie-container {
+    flex-direction: column;
+  }
+
+  .login-preview {
+    height: 50%;
+  }
+}
+
+.carousel-item .details {
+  position: absolute;
+  bottom: -100%;
+  /* Kart detayları başlangıçta gizli */
+  left: 0;
+  width: auto;
+  height: auto;
+  background: #000a;
+  backdrop-filter: blur(16px) saturate(120%);
+  transition: bottom 0.3s ease-in-out;
+  /* Yumuşak geçiş */
+  color: #fff;
+  z-index: 2;
+}
+
+.carousel .card.active .details {
+  bottom: 0;
+  /* Sadece active kartın detayları görünür */
+}
+
+/* Kart tasarımı */
+.carousel .card {
+  flex: 0 0 25%;
+  /* Kart genişliği */
+  margin: 0 20px;
+  /* Kenar boşluklarını azaltır */
+  height: 450px;
+  /* Kart yüksekliği */
+  border-radius: 25px;
+  /* Daha küçük yuvarlak kenar */
+  overflow: hidden;
+  box-shadow: 0 0px 10px 10px rgba(0, 0, 0, 0.555);
+  transition: transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.carousel .card .movie-poster {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel .card .movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Resmi kesmeden karta sığdırır */
+  display: block;
+  /* Resmin hizasını korur */
+}
+
+.carousel-item .details {
+  position: absolute;
+  bottom: 0;
+  /* Boşluk oluşmaması için başlangıç pozisyonu ayarlandı */
+  left: 0;
+  width: auto;
+  height: auto;
+  /* Kartın tamamını kaplar */
+  padding: 1em;
+  /* İçerik boşluğu küçültüldü */
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  transition: bottom 0.3s ease-in-out;
+  display: none;
+  /* Başlangıçta gizlenir */
+}
+
+.carousel .card.active .details {
+  display: block;
+  /* Sadece aktif kartın detayları görünür */
+  bottom: 0;
+}
+
+.mobile-app-section {
+  background-color: #1a1a1a;
+  /* Arka plan koyu gri */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-app-container {
+  width: 100%;
+  max-width: 1200px;
+  /* Maksimum genişlik */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* Alan taşmasını önlemek için sarma */
+}
+
+.app-text {
+  flex: 1;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.app-text h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.app-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.app-buttons img {
+  width: 150px;
+  /* Buton boyutları küçüldü */
+  height: auto;
+  border-radius: 50px;
+}
+
+.app-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.app-image img {
+  width: 200px;
+  /* Mobil cihazlar için daha küçük boyut */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Mobil cihazlar için düzen */
+@media (max-width: 768px) {
+  .mobile-app-container {
+    flex-direction: column;
+    /* Üst üste yerleşim */
+    text-align: center;
+  }
+
+  .app-text h2 {
+    font-size: 28px;
+    /* Başlık boyutu küçültüldü */
+  }
+
+  .app-buttons img {
+    width: 120px;
+    /* Butonlar daha küçük */
+  }
+
+  .app-image img {
+    width: 150px;
+    /* Görsel daha küçük */
+  }
+}
+
+footer {
+  background-color: black;
+}
+
+footer .box-container {
+  height: auto;
+  background-color: black;
+  margin-left: 10%;
+  margin-right: 2%;
+  padding-bottom: 2%;
+}
+
+footer .box-container .box {
+  color: white;
+  height: auto;
+  width: auto;
+  text-align: center;
+  padding-top: 3%;
+}
+
+footer .box-container .box h3 {
+  font-size: 2rem;
+}
+
+footer .social {
+  margin-top: 1%;
+  padding-right: 2%;
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+}
+
+footer .social a {
+  text-decoration: none;
+  color: white;
+  padding-right: 1%;
+}
+
+footer span {
+  color: rgb(226, 20, 20);
+}
+
+#chatbot-container {
+  position: fixed;
+  bottom: 70px;
+  right: 90px;
+  z-index: 1000;
+}
+
+#chatbot-button {
+  width: 60px;
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#chatbot-button i {
+  width: 100%;
+  height: auto;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  font-size: 30px;
+  color: rgb(255, 0, 0);
+}
+
+#chatbox {
+  position: fixed;
+  bottom: 150px;
+  right: 90px;
+  width: 350px;
+  height: 400px;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#chatbot-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  overflow: hidden;
+}
+
+.search-results {
+  position: absolute;
+  top: 130px;
+  right: 20px;
+  background: white;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.search-results.hidden {
+  display: none;
+}
+
+.search-results .result-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.search-results .result-item img {
+  width: 50px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.search-results .result-item h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Fullscreen Search Modal */
+.fullscreen-search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.fullscreen-search.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-modal-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 70%;
+}
+
+#fullscreen-search-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.fullscreen-search-results {
+  margin-top: 20px;
+  width: 70%;
+  max-height: 400px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none; /* Başlangıçta tamamen gizli */
+}
+
+.fullscreen-search-results .search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 5px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.fullscreen-search-results .search-result-item img {
+  width: 50px;
+  height: 75px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+#fullscreen-search-results.active {
+  display: block; /* Arama sonuçları olduğunda göster */
+}

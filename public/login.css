@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
+
+/* ÖRNEK FONT (opsiyonel) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap");
+
+/* GENEL SIFIRLAMALAR */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GÖVDE */
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #c4c3ca;
+  background-color: #1a1a1a;
+  background-image: url(images/undraw_login_wqkt.svg);
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  height: auto;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  flex-direction: column;
+  justify-content: center;
+  border-image: fill 5 linear-gradient(rgba(255, 255, 255, 0), #0000009a);
+}
+
+/* TAILWIND/B. gibi “row” / “justify-*” vs. YOK; yerlerine kendi sınıflarımız var */
+
+/* SAYFA DIŞ KAPSAYICI */
+.login-page {
+  width: 100%;
+  min-height: 100vh; /* full-height benzeri */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Arka plan rengi body’de de var, isterseniz sadece body de kalabilir */
+}
+
+/* ANA İÇ WRAPPER */
+.login-wrapper {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem 0; /* py-5 benzeri */
+}
+
+/* KARTLARIN VE FORMUN OLDUĞU BÖLGE */
+.login-content-area {
+  position: relative;
+  width: 100%;
+  display: block;
+  padding: 3rem 0; /* pt-5 + pb-5 benzeri */
+  text-align: center;
+}
+
+/* SEKME BAŞLIĞI (Log In / Sign Up) */
+.tab-switch-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem; /* Arzuya göre */
+}
+.tab-switch-title span {
+  padding: 0 20px;
+}
+
+/* CHECKBOX VE LABEL (3D DÖNÜŞÜM TETİKLEYİCİ) */
+.checkbox {
+  position: absolute;
+  left: -9999px;
+}
+.checkbox + label {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 16px;
+  margin: 10px auto;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: black;
+}
+.checkbox + label:before {
+  content: "\eb4f";
+  font-family: "unicons";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgb(226, 20, 20);
+  color: #ffeba7;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  transition: all 0.5s ease;
+  z-index: 20;
+}
+.checkbox:checked + label:before {
+  transform: translateX(44px) rotate(-270deg);
+}
+
+/* 3D KARTIN ANA KAPSAYICISI */
+.card-3d-wrap {
+  position: relative;
+  width: 440px;
+  max-width: 100%;
+  height: 400px;
+  margin: 60px auto 0 auto;
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+/* 3D KART - İÇ WRAPPER */
+.card-3d-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 600ms ease-out;
+  transform-style: preserve-3d;
+}
+.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
+  transform: rotateY(180deg);
+}
+
+/* KART ÖN VE ARKA YÜZ */
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 15px;
+  background-color: #000000;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 300%;
+  backface-visibility: hidden; /* 3D çevirme için */
+  transform-style: preserve-3d;
+}
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* ORTA KAPSAYICI (Ön/Arka kart ortalama) */
+.center-wrap {
+  position: absolute;
+  width: 100%;
+  padding: 0 35px;
+  top: 50%;
+  left: 0;
+  transform: translate3d(0, -50%, 35px) perspective(100px);
+  z-index: 20;
+  display: block;
+}
+
+/* FORM BÖLÜMÜ */
+.form-section {
+  text-align: center;
+}
+.form-title {
+  font-weight: 600;
+  margin-bottom: 1rem; /* .mb-4 benzeri */
+  padding-bottom: 0.75rem; /* .pb-3 benzeri */
+}
+
+/* FORM GRUPLARI ve INPUTLAR */
+.form-group {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.form-style {
+  width: 100%;
+  height: 48px;
+  padding: 13px 20px;
+  padding-left: 55px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  color: #c4c3ca;
+  background-color: #1a1a1a;
+  border: none;
+  outline: none;
+  transition: all 200ms linear;
+  box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
+}
+.form-style:focus {
+  box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
+}
+.input-icon {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 48px;
+  font-size: 24px;
+  line-height: 48px;
+  text-align: left;
+  color: rgb(226, 20, 20);
+  transition: all 200ms linear;
+}
+
+/* Placeholder stilleri */
+.form-group input::placeholder {
+  color: #c4c3ca;
+  opacity: 0.7;
+  transition: all 200ms linear;
+}
+.form-group input:focus::placeholder {
+  opacity: 0;
+}
+
+/* BUTON STİLLERİ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 30px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(226, 20, 20);
+  color: black;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px 0 rgba(255, 235, 167, 0.2);
+  transition: all 200ms linear;
+  text-decoration: none; /* <a> etiketi olduğu için */
+}
+.btn:hover {
+  background-color: transparent;
+  color: rgb(226, 20, 20);
+  box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
+}
+.btn:focus,
+.btn:active {
+  outline: none;
+  background-color: #102770;
+  color: #ffeba7;
+  box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
+}
+
+/* EK KULLANIMLI SINIFLAR */
+.margin-top {
+  margin-top: 1rem;
+}
+.info-text {
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 500;
+}
+.link-override {
+  color: #c4c3ca;
+  transition: color 200ms linear;
+  text-decoration: none;
+}
+.link-override:hover {
+  color: rgb(226, 20, 20);
+}

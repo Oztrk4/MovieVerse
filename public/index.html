@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieVerse</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body data-page="home">
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="images/LOGO.png" alt="" />
+      </div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <ul class="nav-links">
+        <a href="index.html"
+          ><li class="active">Home<span></span></li
+        ></a>
+        <a href="movies.html"
+          ><li>Movies<span></span></li
+        ></a>
+        <a href="ımdb.html"
+          ><li>IMDb<span></span></li
+        ></a>
+        <a href="campaign.html"
+          ><li>Campaigns<span></span></li
+        ></a>
+        <a href="contact.html"
+          ><li>About/Contact<span></span></li
+        ></a>
+      </ul>
+      <div class="nav-right">
+        <a href="login.html" id="sign-in">Sign In</a>
+        <button id="search-button" class="search-btn">
+          <i class="fa-solid fa-magnifying-glass" style="color: white"></i>
+        </button>
+      </div>
+    </nav>
+    <div id="fullscreen-search" class="fullscreen-search hidden">
+      <div class="search-modal-content">
+        <input
+          type="text"
+          id="fullscreen-search-input"
+          placeholder="Press 'Return' to search..."
+        />
+        <button id="close-search" class="close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div
+        id="fullscreen-search-results"
+        class="fullscreen-search-results"
+      ></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>
+          "Movie<span style="color: rgb(226, 20, 20)">Verse</span> - Bring Your
+          Imagination to the Screen"
+        </h1>
+      </div>
+    </section>
+
+    <section class="camp-preview">
+      <div class="camp-preview-title">
+        <h1>CAMPAIGNS</h1>
+        <div class="btnn">
+          <a href="campaign.html"><button class="btn">SEE ALL</button></a>
+        </div>
+      </div>
+      <div class="poster-container">
+        <div class="poster">
+          <a href="campaign.html#3"
+            ><img src="images/kampanya(cinema nights).png" alt=""
+          /></a>
+        </div>
+        <div class="poster">
+          <a href="ımdb.html"><img src="images/IMDB-poster.png" alt="" /></a>
+        </div>
+        <div class="poster">
+          <a href="campaign.html#2"
+            ><img src="images/kampanya(couple hours).png" alt=""
+          /></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="login-movie">
+      <div class="login-movie-container">
+        <!-- Sol taraf: Giriş alanı -->
+        <div class="login-preview">
+          <form id="index-login-form">
+            <h2>SIGN IN</h2>
+            <input type="email" id="index-email" placeholder="Email" required />
+            <input
+              type="password"
+              id="index-password"
+              placeholder="Password"
+              required
+            />
+            <a href="login.html">I don't have an account</a>
+            <button type="submit" id="index-login-btn">Login</button>
+          </form>
+        </div>
+
+        <!-- Sağ taraf: Film Kartları -->
+        <section class="film-carousel">
+          <div class="header">
+            <h1 class="new-movies">NEW MOVIES</h1>
+            <a href="movies.html" class="see-all">SEE ALL</a>
+          </div>
+          <div class="carousel-container">
+            <button class="carousel-btn prev-btn">&#10094;</button>
+            <div class="carousel">
+              <div class="card carousel-item active">
+                <div class="movie-poster">
+                  <img src="images/lor.jpg" alt="Location Unknown" />
+                </div>
+                <div class="details">
+                  <h1>Lord of The Rings</h1>
+                  <h2>2001 • 2hr. 58mn.</h2>
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>4.7/5</span>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Fantastic</span>
+                    <span class="tag">/ Science Fiction</span>
+                  </div>
+                  <p class="desc">
+                    Marco, a disillusioned backpacker in his late 20s, embarks
+                    on a solitary journey in search for meaning.
+                  </p>
+                </div>
+              </div>
+              <div class="card carousel-item">
+                <div class="movie-poster">
+                  <img src="images/testere.jpg" alt="Air" />
+                </div>
+                <div class="details">
+                  <h1>The Saw</h1>
+                  <h2>2023 • 1hr. 51mn.</h2>
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>4.2/5</span>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Horror</span>
+                    <span class="tag">/ Mystery</span>
+                  </div>
+                  <p class="desc">
+                    Lily, the travel writer, and Nathan, the book editor, goes
+                    on a plane together to the alps.
+                  </p>
+                </div>
+              </div>
+              <div class="card carousel-item">
+                <div class="movie-poster">
+                  <img src="images/wom.png" alt="End Credits" />
+                </div>
+                <div class="details">
+                  <h1>Wrath of Man</h1>
+                  <h2>2021 • 1hr. 58mn.</h2>
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>4/5</span>
+                  </div>
+                  <div class="tags">
+                    <span class="tag yellow">Action</span>
+                    <span class="tag">/ Guilt</span>
+                  </div>
+                  <p class="desc">
+                    Alex and his best friend goes on a road trip whilst
+                    experiencing friendship, self-discovery, and the bittersweet
+                    transition to adulthood.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-btn next-btn">&#10095;</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="mobile-app-section">
+      <div class="mobile-app-container">
+        <div class="app-text">
+          <h2>GET APP</h2>
+          <div class="app-buttons">
+            <a href="https://www.apple.com/tr/app-store/" class="google-play">
+              <img src="images/app-store.png" alt="" />
+            </a>
+            <a href="https://play.google.com/store/games" class="app-store">
+              <img src="images/google_play.png" alt="" />
+            </a>
+          </div>
+        </div>
+        <div class="app-image">
+          <img src="images/output.png" alt="Mobil Uygulama" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="box-container">
+        <div class="box">
+          <h3>Created by MovieVerse | <span>All Rights Reserved</span></h3>
+        </div>
+        <div class="social">
+          <a
+            href="https://tr-tr.facebook.com/nisantasiedu/"
+            target="_blank"
+            class="fa-brands fa-facebook-f"
+          ></a>
+          <a
+            href="http://instagram.com/oz.trk4/"
+            target="_blank"
+            class="fa-brands fa-instagram"
+          ></a>
+          <a
+            href="https://twitter.com/Abdulsametztr13"
+            target="_blank"
+            class="fa-brands fa-twitter"
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/abdulsamet-%C3%B6zt%C3%BCrk-9135412a8/"
+            target="_blank"
+            class="fab fa-linkedin"
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <div id="chatbot-container">
+      <div id="chatbot-button">
+        <i class="bi bi-robot"></i>
+      </div>
+      <div id="chatbox" style="display: none">
+        <iframe src="chatbot.html" id="chatbot-frame" scrolling="no"></iframe>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

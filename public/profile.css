@@ -1,0 +1,129 @@
+body {
+  background-color: #1a1a1a;
+}
+
+.logout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.logout-btn button {
+  padding: 20px 40px;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.profile-container {
+  height: auto;
+  margin: 150px 70px;
+}
+
+.profile-user {
+  height: auto;
+  background-color: black;
+  border-radius: 30px;
+  padding-top: 30px;
+}
+
+.profile-avatar {
+  align-self: center;
+  justify-self: center;
+  background-color: white;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.profile-user .profile-username {
+  justify-self: center;
+  color: white;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.profile-com-res {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid white;
+  font-size: 25px;
+  color: white;
+}
+
+.profile-com,
+.profile-res {
+  cursor: pointer;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.profile-com.active-tab,
+.profile-res.active-tab {
+  color: rgb(255, 0, 0); /* Aktif sekmenin rengi */
+  border-bottom: 2px solid rgb(255, 0, 0); /* Altına çizgi ekler */
+}
+
+.profile-comment-container {
+  border-radius: 30px;
+  margin-top: 30px;
+  height: 100%;
+  padding: 20px 50px;
+}
+
+.profile-comment-container .profile-comment-box {
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.603);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word; /* Uzun kelimeleri böler */
+  box-sizing: border-box;
+  width: 100%; /* Kutuların eşit genişlikte olmasını sağlar */
+  margin-bottom: 20px;
+  min-height: 250px;
+}
+
+.profile-comment-container .profile-comment-box .profile-comment {
+  font-size: 18px;
+  text-align: center;
+  flex-grow: 1; /* Yorum alanını büyüterek boşluğu doldur */
+  justify-self: center;
+}
+
+.profile-reservation-container {
+  border-radius: 30px;
+  margin-top: 30px;
+  height: 100%;
+  padding: 20px 50px;
+}
+
+.profile-reservation-container .profile-reservation-box {
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.603);
+  padding: 10px 20px;
+  display: flex;
+  height: 250px;
+  border-radius: 30px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.profile-reservation-container
+  .profile-reservation-box
+  .profile-reservation-moviename {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.profile-reservation-container
+  .profile-reservation-box
+  .profile-reservation-infos {
+  font-size: 30px;
+  font-weight: bold;
+  align-items: stretch;
+}
