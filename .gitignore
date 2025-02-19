@@ -1,0 +1,5 @@
+# Node.js modülleri
+node_modules/
+
+# Ortam değişkenleri (gizli bilgiler)
+.env
