@@ -70,7 +70,7 @@ const sendWelcomeEmail = (email, name) => {
         from: `MovieVerse <${process.env.EMAIL_USER}>`, // Gönderici adı ve e-posta adresi
         to: email,
         subject: 'Welcome to MovieVerse!',
-        text: `Hi ${name},\n\nWelcome to MovieVerse! We are excited to have you on board.\n\nBest regards,\nMovieVerse Team`,
+        text: `Hi ${name},\n\nWelcome to MovieVerse! We are excited to have you join us. Please stay tuned for details and campaigns from MovieVerse.\n\nBest regards,\nMovieVerse Team`,
     };
     transporter.sendMail(mailOptions, (err, info) => {
         if (err) {
@@ -95,7 +95,7 @@ const sendResetPasswordEmail = (email, token) => {
         from: `MovieVerse <${process.env.EMAIL_USER}>`,
         to: email,
         subject: 'Password Reset Request',
-        text: `Hi,\n\nYou requested to reset your password. Click the link below to reset your password:\n\n${resetLink}\n\nIf you didn't request this, please ignore this email.\n\nBest regards,\nMovieVerse Team`,
+        text: `Hi,\n\nWe have received your password renewal request. We are sorry that you lost your password. But don't worry, we are here. We have added the password renewal link below. You can create a new password by clicking:\n\n${resetLink}\n\nIf you didn't request this, please ignore this email.\n\nBest regards,\nMovieVerse Team`,
     };
 
     transporter.sendMail(mailOptions, (err, info) => {
@@ -127,13 +127,13 @@ app.post('/signup', async (req, res) => {
         // **E-posta gerçekten var mı?**
         const isValidEmail = await validateEmail(email);
         if (!isValidEmail) {
-            return res.status(400).json({ error: 'Geçersiz e-posta adresi. Lütfen gerçek bir e-posta girin.' });
+            return res.status(400).json({ error: 'Invalid email address. Please enter a real email.' });
         }
 
         // **E-posta zaten kullanılıyor mu?**
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.status(400).json({ error: 'Bu e-posta adresi zaten kayıtlı.' });
+            return res.status(400).json({ error: 'This email address is already registered.' });
         }
 
         // **Şifreyi hashle ve kullanıcıyı kaydet**
@@ -143,10 +143,10 @@ app.post('/signup', async (req, res) => {
 
         sendWelcomeEmail(email, name); // Hoş geldiniz e-postası gönder
 
-        res.status(201).json({ message: 'Kullanıcı başarıyla oluşturuldu.' });
+        res.status(201).json({ message: 'The user has been created successfully.' });
     } catch (err) {
         console.error('Kayıt hatası:', err);
-        res.status(500).json({ error: 'Kayıt işlemi başarısız oldu.' });
+        res.status(500).json({ error: 'Registration failed.' });
     }
 });
 
