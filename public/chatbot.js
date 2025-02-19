@@ -1,82 +1,86 @@
-const API_KEY = "ee0b9d204f137fe0dbc9b0a2aacfdaaf";
-const BASE_URL = "https://api.themoviedb.org/3";
-let movies = []; // Filmleri tutacağımız dizi
+document.addEventListener("DOMContentLoaded", async () => {
+  const commentTab = document.querySelector(".profile-com");
+  const reservationTab = document.querySelector(".profile-res");
+  const commentContainer = document.querySelector(".profile-comment-container");
+  const reservationContainer = document.querySelector(".profile-reservation-container");
+  const profileAvatar = document.querySelector(".profile-avatar");
+  const profileUsername = document.querySelector(".profile-username h2");
 
-// Filmleri API'den al ve chatbota tanıt
-async function fetchMovies() {
+  // İlk yüklemede sadece yorumlar gösterilsin
+  commentContainer.style.display = "block";
+  reservationContainer.style.display = "none";
+
+  // ✅ **Backend URL (Render Backend Adresin)**
+  const BACKEND_URL = "https://movieverse-backend-0vps.onrender.com"; // Kendi backend URL’ini buraya ekle
+
+  // Kullanıcı verilerini al
   try {
-    const response = await fetch(
-      `${BASE_URL}/movie/now_playing?api_key=${API_KEY}&language=en-US&region=TR&page=1`
-    );
-    const data = await response.json();
-    movies = data.results; // API'den gelen filmleri kaydet
-  } catch (error) {
-    console.error("An error occurred while importing movies:", error);
+      const token = localStorage.getItem("token");
+      const response = await fetch(`${BACKEND_URL}/profile-data`, { // ✅ Fetch URL güncellendi
+          headers: {
+              Authorization: `Bearer ${token}`,
+          },
+      });
+
+      if (!response.ok) throw new Error("Failed to fetch profile data.");
+
+      const { user, comments, reservations } = await response.json();
+
+      // Avatar ve kullanıcı adını güncelle
+      profileAvatar.style.backgroundImage = `url('${user.avatar}')`;
+      profileAvatar.style.backgroundSize = "cover";
+      profileAvatar.style.backgroundPosition = "center";
+      profileAvatar.style.backgroundRepeat = "no-repeat";
+      profileUsername.textContent = user.name;
+
+      // Yorumları doldur
+      commentContainer.innerHTML = comments
+          .map(comment => `
+              <div class="profile-comment-box">
+                  <div class="profile-comment">
+                      <p><strong>Film:</strong> ${comment.filmName}</p>
+                      <p>${comment.comment}</p>
+                      <p class="comment-date">${new Date(comment.createdAt).toLocaleString()}</p>
+                  </div>
+              </div>
+          `)
+          .join("");
+
+      // Rezervasyonları doldur
+      reservationContainer.innerHTML = reservations
+          .map(reservation => `
+              <div class="profile-reservation-box">
+                  <div class="profile-reservation-moviename">${reservation.filmName}</div>
+                  <div class="profile-reservation-infos">
+                      <div class="infos-movieDate">${reservation.date}</div>
+                      <div class="infos-movieTime">${reservation.time}</div>
+                      <div class="infos-movieTicket">Seat: ${reservation.seat}</div>
+                  </div>
+              </div>
+          `)
+          .join("");
+  } catch (err) {
+      console.error("Error loading profile data:", err);
+      alert("Failed to load profile data.");
   }
-}
 
-// Kullanıcının mesajına uygun filmi bul ve rezervasyon linki oluştur
-function findReservationLink(userMessage) {
-  const matchedMovie = movies.find((movie) =>
-    userMessage.toLowerCase().includes(movie.title.toLowerCase())
-  );
+  // **MY COMMENT tıklama olayı**
+  commentTab.addEventListener("click", () => {
+      commentContainer.style.display = "block"; // Yorum kutularını göster
+      reservationContainer.style.display = "none"; // Rezervasyon kutularını gizle
 
-  if (matchedMovie) {
-    return `Click here to book tickets: <a href="reservation.html?movieId=${matchedMovie.id}" target="_blank">Reservation Page</a>`;
-  } else {
-    return "No reservations found for this movie. Try writing about one of the upcoming movies.";
-  }
-}
+      // Aktif sekme stili
+      commentTab.classList.add("active-tab");
+      reservationTab.classList.remove("active-tab");
+  });
 
-// Kullanıcı mesajını analiz ederek yanıt üret
-function getBotResponse(userMessage) {
-  // Rezervasyon linki kontrolü
-  if (userMessage.toLowerCase().includes("ticket")) {
-    return findReservationLink(userMessage);
-  }
+  // **MY RESERVATIONS tıklama olayı**
+  reservationTab.addEventListener("click", () => {
+      commentContainer.style.display = "none"; // Yorum kutularını gizle
+      reservationContainer.style.display = "block"; // Rezervasyon kutularını göster
 
-  // Genel yanıt
-  return "How can I help you?";
-}
-
-// Mesajları ekrana ekleme
-function addMessage(content, type) {
-  const message = document.createElement("div");
-  message.classList.add("message", type);
-  message.innerHTML = `<p>${content}</p>`;
-  chatMessages.appendChild(message);
-  chatMessages.scrollTop = chatMessages.scrollHeight; // Yeni mesaj geldiğinde otomatik aşağı kaydır
-}
-
-// Mesaj gönderme işlevi
-function sendMessage() {
-  const userMessage = chatInputBox.value.trim();
-  if (userMessage) {
-    addMessage(userMessage, "sent"); // Kullanıcı mesajını göster
-    chatInputBox.value = "";
-
-    setTimeout(() => {
-      const botResponse = getBotResponse(userMessage); // Bot yanıtını al
-      addMessage(botResponse, "received");
-    }, 1000);
-  }
-}
-
-// HTML öğelerini seç
-const chatMessages = document.querySelector(".chat-messages");
-const chatInputBox = document.getElementById("chat-input-box");
-const sendMessageBtn = document.getElementById("send-message");
-
-// Enter tuşuna basıldığında mesaj gönder
-chatInputBox.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    sendMessage();
-  }
+      // Aktif sekme stili
+      reservationTab.classList.add("active-tab");
+      commentTab.classList.remove("active-tab");
+  });
 });
-
-// Gönder butonuna basıldığında mesaj gönder
-sendMessageBtn.addEventListener("click", sendMessage);
-
-// Sayfa yüklendiğinde filmleri API'den al
-document.addEventListener("DOMContentLoaded", fetchMovies);
