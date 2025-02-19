@@ -3,6 +3,7 @@ const currentpage = document.body.getAttribute("data-page");
 if (currentpage === "reservation") {
   const API_KEY = "ee0b9d204f137fe0dbc9b0a2aacfdaaf";
   const BASE_URL = "https://api.themoviedb.org/3";
+  const BACKEND_URL = "https://movieverse-backend-0vps.onrender.com"; // Backend URL
 
   // Get the movieId from the URL
   const urlParams = new URLSearchParams(window.location.search);
@@ -127,7 +128,7 @@ if (currentpage === "reservation") {
   // Fetch and display comments
   async function fetchComments(filmId) {
     try {
-      const response = await fetch(`/comments/${filmId}`);
+      const response = await fetch(`${BACKEND_URL}/comments/${filmId}`);
       if (!response.ok) throw new Error("Failed to fetch comments.");
       const comments = await response.json();
 
@@ -172,7 +173,7 @@ if (currentpage === "reservation") {
     const filmName = document.getElementById("movie-name").textContent;
 
     try {
-      const response = await fetch("/comments", {
+      const response = await fetch(`${BACKEND_URL}/comments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -300,7 +301,7 @@ if (currentpage === "reservation") {
           }
 
           try {
-            const response = await fetch("/reserve-seat", {
+            const response = await fetch(`${BACKEND_URL}/reserve-seat`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
