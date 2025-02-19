@@ -1,3 +1,5 @@
+const API_BASE_URL = "https://movieverse-backend-0vps.onrender.com"; // Backend URL
+
 // Kullanıcı kayıt işlemi
 document.getElementById("signup-btn").addEventListener("click", async (e) => {
   e.preventDefault();
@@ -6,7 +8,7 @@ document.getElementById("signup-btn").addEventListener("click", async (e) => {
   const password = document.getElementById("logpass2").value;
 
   try {
-    const response = await fetch("/signup", {
+    const response = await fetch(`${API_BASE_URL}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +24,7 @@ document.getElementById("signup-btn").addEventListener("click", async (e) => {
       document.getElementById("logemail2").value = "";
       document.getElementById("logpass2").value = "";
     } else {
-      alert(data.error); // Kullanıcıya geçersiz e-posta hatası göstereceğiz
+      alert(data.error); // Kullanıcıya hata mesajı göster
     }
   } catch (err) {
     console.error("Signup error:", err);
@@ -36,7 +38,7 @@ document.getElementById("login-btn").addEventListener("click", async (e) => {
   const password = document.getElementById("logpass").value;
 
   try {
-    const response = await fetch("/login", {
+    const response = await fetch(`${API_BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,8 +66,10 @@ document.getElementById("login-btn").addEventListener("click", async (e) => {
 // Navbar güncelleme
 function updateNavbar(name) {
   const signInLink = document.getElementById("sign-in");
-  signInLink.textContent = name; // Kullanıcı adını göster
-  signInLink.href = "/profile.html"; // Profil sayfasına yönlendir
+  if (signInLink) {
+    signInLink.textContent = name; // Kullanıcı adını göster
+    signInLink.href = "/profile.html"; // Profil sayfasına yönlendir
+  }
 }
 
 // Sayfa yüklenirken kullanıcı giriş yapmışsa Navbar'ı güncelle
@@ -86,7 +90,7 @@ document
     if (!email) return;
 
     try {
-      const response = await fetch("/forgot-password", {
+      const response = await fetch(`${API_BASE_URL}/forgot-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
