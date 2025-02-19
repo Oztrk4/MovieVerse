@@ -202,7 +202,7 @@ if (currentpage === "reservation") {
   async function fetchReservedSeats(filmId, date, time) {
     try {
       const response = await fetch(
-        `/reserved-seats?filmId=${filmId}&date=${date}&time=${time}`
+        `${BACKEND_URL}/reserved-seats?filmId=${filmId}&date=${date}&time=${time}`
       );
       if (!response.ok) throw new Error("Failed to fetch reserved seats.");
 
