@@ -12,6 +12,12 @@ const crypto = require('crypto');
 const dns = require('dns');
 const { promisify } = require('util');
 const resolveMx = promisify(dns.resolveMx);
+const cors = require("cors");
+
+
+
+app.use(cors());
+
 
 
 
