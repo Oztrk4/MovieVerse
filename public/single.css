@@ -205,3 +205,12 @@ body::before {
   border: none;
   font-size: 30px;
 }
+
+
+@media (max-width: 480px) {
+
+  .imdb-info .imdb-category-director {
+    font-size: 38px;
+  }
+
+}

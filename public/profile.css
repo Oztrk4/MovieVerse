@@ -113,6 +113,9 @@ body {
   align-items: center;
 }
 
+
+
+
 .profile-reservation-container
   .profile-reservation-box
   .profile-reservation-moviename {
@@ -126,4 +129,42 @@ body {
   font-size: 30px;
   font-weight: bold;
   align-items: stretch;
+}
+
+@media (max-width: 480px) {
+
+  .profile-com-res {
+    font-size: 12px;
+  }
+
+
+
+
+  .profile-reservation-container {
+    padding: 10px 0;
+  }
+
+
+  .profile-reservation-container .profile-reservation-box {
+    display: block;
+    height: auto;
+    text-align: center;
+  }
+
+
+  .profile-reservation-container
+  .profile-reservation-box
+  .profile-reservation-moviename {
+  font-size: 20px;
+}
+
+  
+.profile-reservation-container
+.profile-reservation-box
+.profile-reservation-infos {
+font-size: 20px;
+}
+
+
+
 }

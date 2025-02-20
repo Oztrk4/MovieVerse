@@ -317,3 +317,59 @@ body::before {
   border: none;
   font-size: 30px;
 }
+
+
+@media (max-width: 480px) {
+
+  html, body {
+    overflow-x: hidden; /* Yatay kaydırmayı engeller */
+    max-width: 100%;
+  }
+
+  .movie-details {
+    display: block;
+    margin-bottom: 40px;
+}
+
+.movie-details .trailer {
+  /* Tam genişlik */
+  max-width: 350px;
+  /* Maksimum genişlik */
+  height: 250px;
+  /* Daha büyük bir yükseklik */
+}
+
+.movie-details .info {
+  width: 100%;
+  text-align: center;
+}
+
+
+.seating .seating-container {
+  display: grid;
+  grid-template-columns: auto repeat(9, 33px);
+  place-items: center;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: fit-content;
+  text-align: center;
+}
+
+
+.seating .seat {
+  width: 37px;
+  height: 37px;
+  background-image: url("https://icons.iconarchive.com/icons/pictogrammers/material/256/seat-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; /* Koltuk seçilebilir */
+  border: none;
+  color: transparent;
+  text-shadow: none;
+}
+
+
+}

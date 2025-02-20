@@ -427,7 +427,8 @@ html::-webkit-scrollbar-thumb {
   transform: scale(1.05);
 }
 
-/* Responsive düzenlemeler */
+
+/*
 @media (max-width: 1024px) {
   .poster-container {
     justify-content: space-around;
@@ -435,7 +436,6 @@ html::-webkit-scrollbar-thumb {
 
   .poster {
     width: 45%;
-    /* 1024px ve altındaki ekranlarda posterler %45 genişliğinde olacak */
   }
 
   .camp-preview-title h1 {
@@ -451,7 +451,6 @@ html::-webkit-scrollbar-thumb {
 
   .poster {
     width: 100%;
-    /* 768px ve altındaki ekranlarda her poster %100 genişliğinde olacak */
   }
 
   .camp-preview-title h1 {
@@ -471,6 +470,9 @@ html::-webkit-scrollbar-thumb {
     letter-spacing: 1px;
   }
 }
+
+*/
+
 
 .login-movie {
   height: auto;
@@ -814,29 +816,6 @@ html::-webkit-scrollbar-thumb {
   object-fit: contain;
 }
 
-/* Mobil cihazlar için düzen */
-@media (max-width: 768px) {
-  .mobile-app-container {
-    flex-direction: column;
-    /* Üst üste yerleşim */
-    text-align: center;
-  }
-
-  .app-text h2 {
-    font-size: 28px;
-    /* Başlık boyutu küçültüldü */
-  }
-
-  .app-buttons img {
-    width: 120px;
-    /* Butonlar daha küçük */
-  }
-
-  .app-image img {
-    width: 150px;
-    /* Görsel daha küçük */
-  }
-}
 
 footer {
   background-color: black;
@@ -1046,3 +1025,220 @@ footer span {
 #fullscreen-search-results.active {
   display: block; /* Arama sonuçları olduğunda göster */
 }
+
+
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 1.5em;
+  }
+
+
+
+
+
+
+
+  .camp-preview {
+    padding-top: 3px;
+    padding-bottom: 35px;
+    background-color: #0d0d0d;
+    width: 100%;
+    box-sizing: border-box;
+    background: url(images/camp-preview.jpg) no-repeat;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    flex-direction: column;
+    justify-content: center;
+    border-image: fill 5 linear-gradient(rgba(255, 255, 255, 0), #0000009a);
+  }
+  
+  .camp-preview-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    backdrop-filter: none;
+  }
+  
+  .camp-preview-title h1 {
+    color: rgb(226, 20, 20);
+    font-weight: 1000;
+    font-size: 1.5em;
+    letter-spacing: 5px;
+    flex: 1;
+    text-align: center;
+    letter-spacing: 15px;
+    font-family: "Roboto", serif;
+  }
+  
+  .camp-preview-title .btnn {
+    display: flex;
+  }
+  
+  .camp-preview-title .btnn a {
+    color: #fff;
+  }
+  
+  .camp-preview-title .btnn .btn {
+    background-color: rgb(226, 20, 20);
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: 0.3s;
+    right: 15px;
+  }
+  
+  .camp-preview-title .btnn .btn:hover {
+    background-color: #ffffff;
+    color: rgb(226, 20, 20);
+    border-radius: 5px;
+  }
+  
+  .poster-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .poster {
+    width: 100%;
+    /* posterler %100 genişliğinde olacak */
+    max-width: 150px;
+    /* maksimum genişlik 300px */
+    box-shadow: 0px 0px 30px 0px rgb(194, 194, 194);
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .poster img {
+    object-fit: cover;
+    /* Görsellerin alanı kaplamasını sağlıyoruz */
+    width: 100%;
+    /* Görsellerin genişliğini %100 yapıyoruz */
+    height: 100%;
+    /* Görsellerin yüksekliğini %100 yapıyoruz */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .poster:hover {
+    transform: scale(1.05);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  #chatbox {
+    right: 50px;
+  }
+
+
+  .login-preview {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 30px;
+  }
+
+  
+  /* Kart tasarımı */
+  .carousel .card {
+    flex: 0 0 15%;
+    /* Kart genişliği */
+    margin: 0 20px;
+    /* Kenar boşluklarını azaltır */
+    height: 150px;
+    /* Kart yüksekliği */
+  }
+  
+  .carousel-item .details {
+    font-size: 5px;
+  }
+
+  .carousel-container {
+    padding: 40px 0;
+  }
+  
+  .carousel {
+    gap: 10px;
+  }
+  
+  .carousel-item {
+    flex: 0 0 20%;
+    margin: 10px 10px;
+  }
+  
+  .carousel-item.active {
+    flex: 0 0 22%;
+    /* Aktif kart daha geniş */
+    transform: scale(1.25);
+  }
+
+  
+  .carousel-btn {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+  
+
+  .film-carousel {
+    gap: 10px;
+    width: 100%; /* Başlangıçta genişlik 70% */
+  }
+
+
+  .see-all {
+    font-size: 12px;
+  }
+
+  
+  .new-movies {
+    letter-spacing: 20px;
+    font-size: large;
+  }
+
+  .mobile-app-section {
+    padding: 0;
+  }
+
+  .mobile-app-container {
+    /* Üst üste yerleşim */
+    text-align: center;
+  }
+
+  .app-text h2 {
+    font-size: 28px;
+    /* Başlık boyutu küçültüldü */
+  }
+
+  .app-buttons img {
+    width: 60px;
+    /* Butonlar daha küçük */
+  }
+
+  .app-image img {
+    width: 150px;
+    /* Görsel daha küçük */
+  }
+}
+

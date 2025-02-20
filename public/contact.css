@@ -121,3 +121,30 @@
   background-color: black;
   color: white;
 }
+
+
+
+@media (max-width: 480px) {
+
+
+
+  .about-contact-container {
+    height: auto;
+    padding: 150px 20px 20px 20px;
+    background-color: #1a1a1a;
+  }
+  
+
+  .about-contact-container .about-container .about-header {
+    font-size: 50px;
+  }
+  
+  .about-contact-container .about-container .about-info {
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+
+
+
+}
+
