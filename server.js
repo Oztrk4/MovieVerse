@@ -88,8 +88,8 @@ const sendWelcomeEmail = (email, name) => {
 
 
 
-const sendResetPasswordEmail = (email, token) => {
-    const resetLink = `http://localhost:${PORT}/reset-password/${token}`;
+const sendResetPasswordEmail = (email, token, baseUrl) => {
+    const resetLink = `${baseUrl}/reset-password/${token}`;
 
     const mailOptions = {
         from: `MovieVerse <${process.env.EMAIL_USER}>`,
@@ -205,7 +205,8 @@ app.post('/forgot-password', async (req, res) => {
         user.resetPasswordExpires = Date.now() + 3600000; // 1 saat geçerli
         await user.save();
 
-        sendResetPasswordEmail(email, token); // Şifre sıfırlama e-postası gönder
+        const baseUrl = process.env.BASE_URL || `http://localhost:${PORT}`;
+        sendResetPasswordEmail(email, token, baseUrl); // Şifre sıfırlama e-postası gönder
 
         res.status(200).json({ message: 'Password reset link sent to your email.' });
     } catch (err) {
